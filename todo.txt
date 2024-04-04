@@ -32,6 +32,7 @@ FUNCTIONS
 
 - a plot generic: -Matt
   arguments for variables to be used, and what type of plot to do
+  plot.type(player, a vector of variables (optional))
 
 - Data reader
   takes a user given CSV, and attempts to put it in a form our data can use,
