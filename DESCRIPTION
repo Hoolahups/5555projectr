@@ -12,7 +12,9 @@ LazyData: true
 Imports:
     dplyr,
     rvest, 
-    ggplot2
+    ggplot2, 
+    fmsb, 
+    tibble
 RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)

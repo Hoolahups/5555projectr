@@ -57,9 +57,7 @@ for (i in 1:13) {
   player <- as.list(bask[i, ])
   team_ex[[i]] <- player
 }
-<<<<<<< HEAD
 
 # barplot(bar_data$stat_vec, names.arg = bar_data$player_name,
 #         main = paste0(stat, " Between All Players"))
-=======
->>>>>>> 65d6b5dd735e28dce49516093e1e57add5f913d4
+
