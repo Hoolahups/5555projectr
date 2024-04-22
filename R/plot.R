@@ -9,15 +9,21 @@ stars.player <- function(player, vars, ...) {
 # Barplot function: Plot one statistic across all players (TODO: choose which
 # players to plot statistic across)
 barplot.team <- function(team, stat, players, ...) {
+  # Get data ready for plotting
   player_name <- vector()
   stat_vec <- vector()
   for (i in seq_along(team)) {
     player_name <- c(player_name, as.character(team[[i]]["Player"]))
     stat_vec <- c(stat_vec, as.numeric(team[[i]][stat]))
   }
-  bar_data <- data.frame(player_name, stat_vec)
-  barplot(bar_data$stat_vec, names.arg = bar_data$player_name,
-          main = paste0(stat, " Between All Players"), ...)
+  bar_data <- data.frame(player_name, stat_vec) |>
+    dplyr::arrange(stat_vec)
+
+  # Create horizontal bar plot
+  ggplot2::ggplot(bar_data, ggplot2::aes(stat_vec, stats::reorder(player_name, stat_vec))) +
+    ggplot2::geom_col() +
+    ggplot2::xlab(stat) +
+    ggplot2::ylab("Player")
 }
 
 # Scatterplot function: Plot the relationship between two stats
@@ -27,10 +33,10 @@ plot.team <- function(team, stat1, stat2, ...) {
   for (i in seq_along(team)) {
     stat1_vec <- c(stat1_vec, as.numeric(team[[i]][stat1]))
     stat2_vec <- c(stat2_vec, as.numeric(team[[i]][stat2]))
-    plot(stat1_vec, stat2_vec,
-         xlab = stat1, ylab = stat2,
-         main = paste0("Relationship Between ", stat1, " and ", stat2), ...)
   }
+  plot(stat1_vec, stat2_vec,
+       xlab = stat1, ylab = stat2,
+       main = paste0("Relationship Between ", stat1, " and ", stat2), ...)
 }
 
 # example team class to mess around with
@@ -40,3 +46,6 @@ for (i in 1:13) {
   player <- as.list(bask[i, ])
   team_ex[[i]] <- player
 }
+
+barplot(bar_data$stat_vec, names.arg = bar_data$player_name,
+        main = paste0(stat, " Between All Players"), ...)
