@@ -12,6 +12,8 @@
 #'
 #' @returns A data.frame/tibble (still working on this part)
 #'
+#' @importFrom rlang .data
+#'
 #' @export
 get_data <- function(url) {
   h <- rvest::read_html(url)
@@ -54,39 +56,39 @@ get_data <- function(url) {
   names(player_stats_df) <- stat_names_rev
 
   player_stats_tbl <- tibble::as_tibble(player_stats_df) |>
-    dplyr::select(-zero) |>
-    dplyr::select(-Bio) |>
+    dplyr::select(-.data$zero) |>
+    dplyr::select(-.data$Bio) |>
     # dplyr::mutate(number = as.numeric(number)) |>
-    dplyr::mutate(GP = as.numeric(GP)) |>
-    dplyr::mutate(GS = as.numeric(GS)) |>
-    dplyr::mutate(GS = ifelse(is.na(GS), 0, GS)) |>
-    dplyr::mutate(tot_min = as.numeric(tot_min)) |>
-    dplyr::mutate(avg_min = as.numeric(avg_min)) |>
-    dplyr::mutate(FGM = as.numeric(FGM)) |>
-    dplyr::mutate(FGA = as.numeric(FGA)) |>
-    dplyr::rename(FG_pct = `FG%`) |>
-    dplyr::mutate(FG_pct = as.numeric(FG_pct)) |>
-    dplyr::rename(X3PT = `3PT`) |>
-    dplyr::mutate(X3PT = as.numeric(X3PT)) |>
-    dplyr::rename(X3PTA = `3PTA`) |>
-    dplyr::mutate(X3PTA = as.numeric(X3PTA)) |>
-    dplyr::rename(X3PT_pct = `3PT%`) |>
-    dplyr::mutate(X3PT_pct = as.numeric(X3PT_pct)) |>
-    dplyr::mutate(FTM= as.numeric(FTM)) |>
-    dplyr::mutate(FTA = as.numeric(FTA)) |>
-    dplyr::rename(FT_pct = `FT%`) |>
-    dplyr::mutate(FT_pct = as.numeric(FT_pct)) |>
-    dplyr::mutate(scoring_pts = as.numeric(scoring_pts)) |>
-    dplyr::mutate(scoring_avg = as.numeric(scoring_avg)) |>
-    dplyr::mutate(off_re = as.numeric(off_re)) |>
-    dplyr::mutate(def_re = as.numeric(def_re)) |>
-    dplyr::mutate(tot_re = as.numeric(tot_re)) |>
-    dplyr::mutate(avg_re = as.numeric(avg_re)) |>
-    dplyr::mutate(PF = as.numeric(PF)) |>
-    dplyr::mutate(AST = as.numeric(AST)) |>
-    dplyr::mutate(TO = as.numeric(TO)) |>
-    dplyr::mutate(STL = as.numeric(STL)) |>
-    dplyr::mutate(BLK = as.numeric(BLK))
+    dplyr::mutate(GP = as.numeric(.data$GP)) |>
+    dplyr::mutate(GS = as.numeric(.data$GS)) |>
+    dplyr::mutate(GS = ifelse(is.na(.data$GS), 0, .data$GS)) |>
+    dplyr::mutate(tot_min = as.numeric(.data$tot_min)) |>
+    dplyr::mutate(avg_min = as.numeric(.data$avg_min)) |>
+    dplyr::mutate(FGM = as.numeric(.data$FGM)) |>
+    dplyr::mutate(FGA = as.numeric(.data$FGA)) |>
+    dplyr::rename(FG_pct = .data$`FG%`) |>
+    dplyr::mutate(FG_pct = as.numeric(.data$FG_pct)) |>
+    dplyr::rename(X3PT = .data$`3PT`) |>
+    dplyr::mutate(X3PT = as.numeric(.data$X3PT)) |>
+    dplyr::rename(X3PTA = .data$`3PTA`) |>
+    dplyr::mutate(X3PTA = as.numeric(.data$X3PTA)) |>
+    dplyr::rename(X3PT_pct = .data$`3PT%`) |>
+    dplyr::mutate(X3PT_pct = as.numeric(.data$X3PT_pct)) |>
+    dplyr::mutate(FTM= as.numeric(.data$FTM)) |>
+    dplyr::mutate(FTA = as.numeric(.data$FTA)) |>
+    dplyr::rename(FT_pct = .data$`FT%`) |>
+    dplyr::mutate(FT_pct = as.numeric(.data$FT_pct)) |>
+    dplyr::mutate(scoring_pts = as.numeric(.data$scoring_pts)) |>
+    dplyr::mutate(scoring_avg = as.numeric(.data$scoring_avg)) |>
+    dplyr::mutate(off_re = as.numeric(.data$off_re)) |>
+    dplyr::mutate(def_re = as.numeric(.data$def_re)) |>
+    dplyr::mutate(tot_re = as.numeric(.data$tot_re)) |>
+    dplyr::mutate(avg_re = as.numeric(.data$avg_re)) |>
+    dplyr::mutate(PF = as.numeric(.data$PF)) |>
+    dplyr::mutate(AST = as.numeric(.data$AST)) |>
+    dplyr::mutate(TO = as.numeric(.data$TO)) |>
+    dplyr::mutate(STL = as.numeric(.data$STL)) |>
+    dplyr::mutate(BLK = as.numeric(.data$BLK))
 
   return (player_stats_tbl)
 

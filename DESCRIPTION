@@ -14,7 +14,8 @@ Imports:
     rvest, 
     ggplot2, 
     fmsb, 
-    tibble
+    tibble, 
+    rlang
 RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)
