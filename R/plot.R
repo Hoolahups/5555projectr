@@ -2,7 +2,7 @@
 # class is a list hehe here is stuff for a new push
 
 # Starplot function: Uhhhhhhh
-stars.player <- function(player, vars, ...) {
+player_star <- function(player, vars, ...) {
   # Prepare data for plotting
   # 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
   stat_min <- rep(0, 8)
@@ -18,7 +18,7 @@ stars.player <- function(player, vars, ...) {
 
 # Barplot function: Plot one statistic across all players (TODO: choose which
 # players to plot statistic across)
-barplot.team <- function(team, stat, players, ...) {
+team_bar <- function(team, stat, players, ...) {
   # Prepare data for plotting
   player_name <- vector()
   stat_vec <- vector()
@@ -38,7 +38,7 @@ barplot.team <- function(team, stat, players, ...) {
 }
 
 # Scatterplot function: Plot the relationship between two stats
-plot.team <- function(team, stat1, stat2, ...) {
+compare_stats <- function(team, stat1, stat2, ...) {
   stat1_vec <- vector()
   stat2_vec <- vector()
   for (i in seq_along(team)) {
