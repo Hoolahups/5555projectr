@@ -1,5 +1,5 @@
 # All plots are made assuming the team class is a list of lists, and the player
-# class is a list
+# class is a list hehe here is stuff for a new push
 
 # Starplot function: Uhhhhhhh
 stars.player <- function(player, vars, ...) {
