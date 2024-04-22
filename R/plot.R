@@ -1,7 +1,6 @@
 # All plots are made assuming the team class is a list of lists, and the player
 # class is a list
 
-
 # Starplot function: Uhhhhhhh
 stars.player <- function(player, vars, ...) {
   stars(player)
@@ -39,5 +38,5 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 team_ex <- list()
 for (i in 1:13) {
   player <- as.list(bask[i, ])
-  team[[i]] <- player
+  team_ex[[i]] <- player
 }
