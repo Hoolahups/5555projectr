@@ -2,7 +2,7 @@
 #'
 #' Player statistics from the
 #'
-#' @format ## `student_life`
+#' @format ## `usu_2023`
 #' A data frame?? list of lists??
 #' \describe{
 #'   \item{Number}{Player jersey number}
