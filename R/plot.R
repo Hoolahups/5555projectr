@@ -3,13 +3,23 @@
 
 # Starplot function: Uhhhhhhh
 stars.player <- function(player, vars, ...) {
-  stars(player)
+  # Prepare data for plotting
+  # 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
+  stat_min <- rep(0, 8)
+  stat_max <- rep(1, 1, 1, 100, 35, 600, 250, 150)
+  player_row <- player[c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
+                         "avg_re", "AST", "STL", "BLK")]
+  star_data <- data.frame(stat_max, stat_min, player_row)
+
+  # Create radar/star plot using fmsb package
+  # https://r-graph-gallery.com/142-basic-radar-chart.html
+  fmsb::radarchart(star_data)
 }
 
 # Barplot function: Plot one statistic across all players (TODO: choose which
 # players to plot statistic across)
 barplot.team <- function(team, stat, players, ...) {
-  # Get data ready for plotting
+  # Prepare data for plotting
   player_name <- vector()
   stat_vec <- vector()
   for (i in seq_along(team)) {
@@ -23,7 +33,8 @@ barplot.team <- function(team, stat, players, ...) {
   ggplot2::ggplot(bar_data, ggplot2::aes(stat_vec, stats::reorder(player_name, stat_vec))) +
     ggplot2::geom_col() +
     ggplot2::xlab(stat) +
-    ggplot2::ylab("Player")
+    ggplot2::ylab("Player") +
+    ggplot2::ggtitle(paste0(stat, " Between All Players"))
 }
 
 # Scatterplot function: Plot the relationship between two stats
@@ -46,6 +57,9 @@ for (i in 1:13) {
   player <- as.list(bask[i, ])
   team_ex[[i]] <- player
 }
+<<<<<<< HEAD
 
 # barplot(bar_data$stat_vec, names.arg = bar_data$player_name,
 #         main = paste0(stat, " Between All Players"))
+=======
+>>>>>>> 65d6b5dd735e28dce49516093e1e57add5f913d4
