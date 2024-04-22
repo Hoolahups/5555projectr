@@ -36,7 +36,7 @@ plot.team <- function(team, stat1, stat2, ...) {
   }
   plot(stat1_vec, stat2_vec,
        xlab = stat1, ylab = stat2,
-       main = paste0("Relationship Between ", stat1, " and ", stat2), ...)
+       main = paste0("Relationship Between ", stat1, " and ", stat2))
 }
 
 # example team class to mess around with
@@ -47,5 +47,5 @@ for (i in 1:13) {
   team_ex[[i]] <- player
 }
 
-barplot(bar_data$stat_vec, names.arg = bar_data$player_name,
-        main = paste0(stat, " Between All Players"), ...)
+# barplot(bar_data$stat_vec, names.arg = bar_data$player_name,
+#         main = paste0(stat, " Between All Players"))
