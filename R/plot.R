@@ -24,8 +24,8 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 
   # Create radar/star plot using fmsb package
   # https://r-graph-gallery.com/142-basic-radar-chart.html
-  fmsb::radarchart(star_data)
-}
+#  fmsb::radarchart(star_data)
+# }
 
 # Test code for starplot
 # bask$osobor_great$AST <- as.numeric(bask$osobor_great$AST) / as.numeric(bask$osobor_great$GP)
