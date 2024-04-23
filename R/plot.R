@@ -5,22 +5,22 @@
 bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 
 # Starplot function: Uhhhhhhh
-player_star <- function(team, player, vars, ...) {
-  # Prepare data for plotting
-  # 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
-  team[[player]]$AST <- as.numeric(team[[player]]$AST) / as.numeric(team[[player]]$GP)
-  team[[player]]$STL <- as.numeric(team[[player]]$STL) / as.numeric(team[[player]]$GP)
-  team[[player]]$BLK <- as.numeric(team[[player]]$BLK) / as.numeric(team[[player]]$GP)
-  for (i in 2:length(team$player)) {
-    team[[player]][i] <- as.numeric(team[[player]][i]) / as.numeric(team$avg[i])
-  }
-  stat_min <- rep(0, 8)
-  stat_max <- rep(max(as.numeric(team[[player]][2:length(team[[player]])])), 8)
-  player_row <- as.numeric(team[[player]][c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
-                         "avg_re", "AST", "STL", "BLK")])
-  star_data <- data.frame(rbind(stat_max, stat_min, player_row))
-  names(star_data) <- c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
-                        "avg_re", "AST", "STL", "BLK")
+# player_star <- function(team, player, vars, ...) {
+#   # Prepare data for plotting
+#   # 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
+#   team[[player]]$AST <- as.numeric(team[[player]]$AST) / as.numeric(team[[player]]$GP)
+#   team[[player]]$STL <- as.numeric(team[[player]]$STL) / as.numeric(team[[player]]$GP)
+#   team[[player]]$BLK <- as.numeric(team[[player]]$BLK) / as.numeric(team[[player]]$GP)
+#   for (i in 2:length(team$player)) {
+#     team[[player]][i] <- as.numeric(team[[player]][i]) / as.numeric(team$avg[i])
+#   }
+#   stat_min <- rep(0, 8)
+#   stat_max <- rep(max(as.numeric(team[[player]][2:length(team[[player]])])), 8)
+#   player_row <- as.numeric(team[[player]][c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
+#                          "avg_re", "AST", "STL", "BLK")])
+#   star_data <- data.frame(rbind(stat_max, stat_min, player_row))
+#   names(star_data) <- c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
+#                         "avg_re", "AST", "STL", "BLK")
 
   # Create radar/star plot using fmsb package
   # https://r-graph-gallery.com/142-basic-radar-chart.html
