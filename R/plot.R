@@ -1,6 +1,9 @@
 # All plots are made assuming the team class is a list of lists, and the player
 # class is a list hehe here is stuff for a new push
 
+# example team class to mess around with
+bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
+
 # Starplot function: Uhhhhhhh
 player_star <- function(team, player, vars, ...) {
   # Prepare data for plotting
@@ -74,6 +77,5 @@ compare_stats <- function(team, stat1, stat2, ...) {
        main = paste0("Relationship Between ", stat1, " and ", stat2))
 }
 
-# example team class to mess around with
-bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
+
 
