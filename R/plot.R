@@ -24,21 +24,21 @@ player_star <- function(team, player, vars, ...) {
   fmsb::radarchart(star_data)
 }
 
-
-bask$osobor_great$AST <- as.numeric(bask$osobor_great$AST) / as.numeric(bask$osobor_great$GP)
-bask$osobor_great$STL <- as.numeric(bask$osobor_great$STL) / as.numeric(bask$osobor_great$GP)
-bask$osobor_great$BLK <- as.numeric(bask$osobor_great$BLK) / as.numeric(bask$osobor_great$GP)
-for (i in 2:length(bask$osobor_great)) {
-  bask$osobor_great[i] <- as.numeric(bask$osobor_great[i]) / as.numeric(bask$avg[i])
-}
-stat_min <- rep(0, 8)
-stat_max <- rep(max(as.numeric(bask$osobor_great[2:length(bask$osobor_great)])), 8)
-player_row <- as.numeric(bask$osobor_great[c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
-                                             "avg_re", "AST", "STL", "BLK")])
-star_data <- data.frame(rbind(stat_max, stat_min, player_row))
-names(star_data) <- c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
-                      "avg_re", "AST", "STL", "BLK")
-fmsb::radarchart(star_data)
+# Test code for starplot
+# bask$osobor_great$AST <- as.numeric(bask$osobor_great$AST) / as.numeric(bask$osobor_great$GP)
+# bask$osobor_great$STL <- as.numeric(bask$osobor_great$STL) / as.numeric(bask$osobor_great$GP)
+# bask$osobor_great$BLK <- as.numeric(bask$osobor_great$BLK) / as.numeric(bask$osobor_great$GP)
+# for (i in 2:length(bask$osobor_great)) {
+#   bask$osobor_great[i] <- as.numeric(bask$osobor_great[i]) / as.numeric(bask$avg[i])
+# }
+# stat_min <- rep(0, 8)
+# stat_max <- rep(max(as.numeric(bask$osobor_great[2:length(bask$osobor_great)])), 8)
+# player_row <- as.numeric(bask$osobor_great[c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
+#                                              "avg_re", "AST", "STL", "BLK")])
+# star_data <- data.frame(rbind(stat_max, stat_min, player_row))
+# names(star_data) <- c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
+#                       "avg_re", "AST", "STL", "BLK")
+# fmsb::radarchart(star_data)
 
 # Barplot function: Plot one statistic across all players (TODO: choose which
 # players to plot statistic across)
