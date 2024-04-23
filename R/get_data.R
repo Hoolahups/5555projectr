@@ -96,9 +96,9 @@ get_data <- function(url) {
     dplyr::mutate(AST = as.numeric(.data$AST)) |>
     dplyr::mutate(TO = as.numeric(.data$TO)) |>
     dplyr::mutate(STL = as.numeric(.data$STL)) |>
-    dplyr::mutate(BLK = as.numeric(.data$BLK))
+    dplyr::mutate(BLK = as.numeric(.data$BLK)) |>
+    dplyr::filter(!Player %in% c("team", "total", "opponents"))
   average_stats <- player_stats_tbl |>
-    dplyr::filter(!Player %in% c("team", "total", "opponents")) |>
     dplyr::summarize(dplyr::across(where(is.numeric), mean, na.rm = TRUE))
   player_stats_tbl <- dplyr::bind_rows(player_stats_tbl, c(Player = "avg", average_stats))
 
