@@ -1,6 +1,7 @@
 # All plots are made assuming the team class is a list of lists, and the player
 # class is a list hehe here is stuff for a new push
 
+
 # example team class to mess around with
 bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 
@@ -21,10 +22,10 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #   star_data <- data.frame(rbind(stat_max, stat_min, player_row))
 #   names(star_data) <- c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
 #                         "avg_re", "AST", "STL", "BLK")
-
-  # Create radar/star plot using fmsb package
-  # https://r-graph-gallery.com/142-basic-radar-chart.html
-#  fmsb::radarchart(star_data)
+#
+#   # Create radar/star plot using fmsb package
+#   # https://r-graph-gallery.com/142-basic-radar-chart.html
+#   fmsb::radarchart(star_data)
 # }
 
 # Test code for starplot
@@ -50,7 +51,7 @@ team_bar <- function(team, stat, players, ...) {
   player_name <- vector()
   stat_vec <- vector()
   for (i in seq_along(team)) {
-    player_name <- c(player_name, as.character(team[[i]]["Player"]))
+    player_name <- c(player_name, names(team)[i])
     stat_vec <- c(stat_vec, as.numeric(team[[i]][stat]))
   }
   bar_data <- data.frame(player_name, stat_vec) |>
@@ -76,6 +77,3 @@ compare_stats <- function(team, stat1, stat2, ...) {
        xlab = stat1, ylab = stat2,
        main = paste0("Relationship Between ", stat1, " and ", stat2))
 }
-
-
-
