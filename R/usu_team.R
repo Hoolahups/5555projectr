@@ -7,8 +7,8 @@
 #' 2023-2024 USU Basketball team.
 #' \describe{
 #'   \item{Number}{Player jersey number}
-#'   \item{GP} Games played
-#'   \item{GS} Games started
+#'   \item{GP}{Games played}
+#'   \item{GS}{Games started}
 #'   ...
 #' }
 #' @source <https://utahstateaggies.com/sports/mens-basketball/stats/2023-24>

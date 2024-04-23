@@ -56,11 +56,11 @@ get_data <- function(url) {
   names(player_stats_df) <- stat_names_rev
 
   player_stats_df <- player_stats_df |>
-    dplyr::mutate(Player = stringr::str_extract(Player, "[^\\r\\n]+")) |>
-    dplyr::mutate(Player = gsub("\\s*\\r\\s*", "", Player)) |>
-    dplyr::mutate(Player = tolower(Player)) |>
-    dplyr::mutate(Player = gsub(".*?([a-z]+(?:\\s+[ivx]+)?),\\s*([a-z]+(?:\\s+[ivx]+)?).*", "\\1_\\2", Player)) |>
-    dplyr::mutate(Player = gsub("\\s+", "", Player))
+    dplyr::mutate(Player = stringr::str_extract(.data$Player, "[^\\r\\n]+")) |>
+    dplyr::mutate(Player = gsub("\\s*\\r\\s*", "", .data$Player)) |>
+    dplyr::mutate(Player = tolower(.data$Player)) |>
+    dplyr::mutate(Player = gsub(".*?([a-z]+(?:\\s+[ivx]+)?),\\s*([a-z]+(?:\\s+[ivx]+)?).*", "\\1_\\2", .data$Player)) |>
+    dplyr::mutate(Player = gsub("\\s+", "", .data$Player))
 
 
   player_stats_tbl <- tibble::as_tibble(player_stats_df) |>
@@ -97,9 +97,9 @@ get_data <- function(url) {
     dplyr::mutate(TO = as.numeric(.data$TO)) |>
     dplyr::mutate(STL = as.numeric(.data$STL)) |>
     dplyr::mutate(BLK = as.numeric(.data$BLK)) |>
-    dplyr::filter(!Player %in% c("team", "total", "opponents"))
+    dplyr::filter(!(.data$Player) %in% c("team", "total", "opponents"))
   average_stats <- player_stats_tbl |>
-    dplyr::summarize(dplyr::across(where(is.numeric), mean, na.rm = TRUE))
+   dplyr::summarize(dplyr::across(dplyr::where(is.numeric), mean, na.rm = TRUE))
   player_stats_tbl <- dplyr::bind_rows(player_stats_tbl, c(Player = "avg", average_stats))
 
 
