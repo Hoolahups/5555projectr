@@ -1,19 +1,22 @@
-variable_maker <- function(dframe, var1, operator = "sum", var2, new_var_name) {
+variable_maker <- function(data_list, var1, var2, operator = "sum", new_var_name) {
   operation <- switch(operator,
-                      "sum" = ~ .data[[var1]] + .data[[var2]],
-                      "div" = ~ .data[[var1]] / .data[[var2]],
-                      "sub" = ~ .data[[var1]] - .data[[var2]],
-                      "mult" = ~ .data[[var1]] * .data[[var2]])
+                      "sum" = function(x, y) x + y,
+                      "div" = function(x, y) x / y,
+                      "sub" = function(x, y) x - y,
+                      "mult" = function(x, y) x * y)
 
-  dframe <- dframe %>%
-    mutate(!!new_var_name := !!operation)
+  if (!(var1 %in% names(data_list) && var2 %in% names(data_list))) {
+    stop("Variables not found in the list")
+  }
 
-  avg_val <- dframe %>%
-    filter(row.names(.) == "avg") %>%
-    pull(!!new_var_name)
+  new_var <- operation(data_list[[var1]], data_list[[var2]])
 
-  dframe <- dframe %>%
-    mutate(!!new_var_name := .data[[new_var_name]] / avg_val)
+  data_list[[new_var_name]] <- new_var
 
-  return(dframe)
+  avg_val <- mean(new_var, na.rm = TRUE)
+
+  data_list[[new_var_name]] <- data_list[[new_var_name]] / avg_val
+
+  return(data_list)
 }
+

@@ -55,6 +55,14 @@ get_data <- function(url) {
 
   names(player_stats_df) <- stat_names_rev
 
+  player_stats_df <- player_stats_df |>
+    dplyr::mutate(Player = stringr::str_extract(Player, "[^\\r\\n]+")) |>
+    dplyr::mutate(Player = gsub("\\s*\\r\\s*", "", Player)) |>
+    dplyr::mutate(Player = tolower(Player)) |>
+    dplyr::mutate(Player = gsub(".*?([a-z]+(?:\\s+[ivx]+)?),\\s*([a-z]+(?:\\s+[ivx]+)?).*", "\\1_\\2", Player)) |>
+    dplyr::mutate(Player = gsub("\\s+", "", Player))
+
+
   player_stats_tbl <- tibble::as_tibble(player_stats_df) |>
     dplyr::select(-.data$zero) |>
     dplyr::select(-.data$Bio) |>
@@ -89,7 +97,19 @@ get_data <- function(url) {
     dplyr::mutate(TO = as.numeric(.data$TO)) |>
     dplyr::mutate(STL = as.numeric(.data$STL)) |>
     dplyr::mutate(BLK = as.numeric(.data$BLK))
+  average_stats <- player_stats_tbl |>
+    dplyr::filter(!Player %in% c("team", "total", "opponents")) |>
+    dplyr::summarize(dplyr::across(where(is.numeric), mean, na.rm = TRUE))
+  player_stats_tbl <- dplyr::bind_rows(player_stats_tbl, c(Player = "avg", average_stats))
 
-  return (player_stats_tbl)
+
+  player_list <- player_stats_tbl |>
+    purrr::pmap(list)
+  names(player_list) <- sapply(player_list, function(x) x$Player)
+  player_list <- lapply(player_list, function(x) {x["Player"] <- NULL; x})
+
+
+
+  return (player_list)
 
 }
