@@ -6,7 +6,7 @@ player_star <- function(player, vars, ...) {
   # Prepare data for plotting
   # 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
   stat_min <- rep(0, 8)
-  stat_max <- rep(1, 1, 1, 100, 35, 600, 250, 150)
+  stat_max <- rep(max(as.numeric(player[3:length(player)])), 8)
   player_row <- player[c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
                          "avg_re", "AST", "STL", "BLK")]
   star_data <- data.frame(stat_max, stat_min, player_row)
@@ -52,8 +52,3 @@ compare_stats <- function(team, stat1, stat2, ...) {
 
 # example team class to mess around with
 bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
-team_ex <- list()
-for (i in 1:13) {
-  player <- as.list(bask[i, ])
-  team_ex[[i]] <- player
-}

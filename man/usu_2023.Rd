@@ -5,7 +5,7 @@
 \alias{usu_2023}
 \title{USU 2023-2024 Men's Team}
 \format{
-## `student_life`
+## `usu_2023`
 A data frame?? list of lists??
 \describe{
   \item{Number}{Player jersey number}
