@@ -6,9 +6,12 @@
 \title{USU 2023-2024 Men's Team}
 \format{
 ## `usu_2023`
-A data frame?? list of lists??
+A list containing lists of the statistics for each player on the Men's
+2023-2024 USU Basketball team.
 \describe{
   \item{Number}{Player jersey number}
+  \item{GP} Games played
+  \item{GS} Games started
   ...
 }
 }
