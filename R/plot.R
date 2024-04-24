@@ -22,7 +22,7 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #'  metrics.
 #'
 #' @examples
-#' player_star(bask, "osobar_great")
+#' player_star(bask, "osobor_great")
 player_star <- function(team, player, vars, ...) {
   # Default vars: 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
 
@@ -57,7 +57,7 @@ player_star <- function(team, player, vars, ...) {
   # Create radar/star plot using fmsb package
   # https://r-graph-gallery.com/142-basic-radar-chart.html
   fmsb::radarchart(star_data, pfcol = grDevices::rgb(0.2, 0.5, 0.5, 0.5),
-                   pty = NA)
+                   pty = NA, title = player)
 }
 
 # Barplot function: Plot one statistic across all players (TODO: choose which
