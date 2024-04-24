@@ -25,7 +25,8 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #' player_star(usu_2023, "osobor_great")
 #'
 #' @export
-player_star <- function(team, player, vars, ...) {
+player_star <- function(team, player, vars = c("FG_pct", "X3PT_pct", "FT_pct",
+                          "scoring_avg", "avg_re", "AST", "STL", "BLK"), ...) {
   # Default vars: 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
 
   # Dividing by games played caused numbers to be 0 later on,
@@ -46,15 +47,12 @@ player_star <- function(team, player, vars, ...) {
   # Create data frame for radarchart, using first row as max values, second
   # row
   # as min values, and third row as actual values
-  stat_min <- rep(0, 8)
+  stat_min <- rep(0, length(vars))
   stat_max <- rep(max(as.numeric(team[[player]][2:length(team[[player]])])),
-                  8)
-  player_row <- as.numeric(team[[player]][c("FG_pct", "X3PT_pct", "FT_pct",
-                                            "scoring_avg", "avg_re", "AST",
-                                            "STL", "BLK")])
+                  length(vars))
+  player_row <- as.numeric(team[[player]][vars])
   star_data <- data.frame(rbind(stat_max, stat_min, player_row))
-  names(star_data) <- c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg",
-                        "avg_re", "AST", "STL", "BLK")
+  names(star_data) <- vars
 
   # Create radar/star plot using fmsb package
   # https://r-graph-gallery.com/142-basic-radar-chart.html

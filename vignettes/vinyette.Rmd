@@ -51,3 +51,18 @@ team. It takes a team argument, and two stats must be chosen to compare.
 ```{r, include = TRUE}
 compare_stats(usu_t2023, 'FG_pct', 'X3PT_pct')
 ```
+
+The variable_maker function takes 2 existing variables and combines them in a 
+way that the user defines, it then returns the entire list with the variables
+and average added to it.
+
+```{r, include = TRUE}
+usu_t2023 <- variable_maker(usu_t2023, "GP", "GS", "sum", "gps")
+```
+
+Once you have your new variable, you can use it to make your own plots. Whether
+or not its useful is up to you, but make sure to have fun with it!
+
+```{r, include = TRUE}
+player_star(usu_t2023, "osobor_great", vars = c("GP", "GS", "FGA", "X3PT", "gps"))
+```
