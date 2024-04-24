@@ -70,13 +70,13 @@ player_star <- function(team, player, vars, ...) {
 #'
 #' @param team A list representing the team data.
 #' @param stat A string specifying the statistic to plot.
-#' @param players A character vector specifying which players to include in the plot.
+#' @param players A character vector specifying which players to include in the plot (coming soon).
 #' @param ... Additional arguments passed to other methods.
 #'
 #' @return A ggplot object representing the bar plot of the statistic across selected players.
 #'
 #' @examples
-#' team_bar(bask, 'FG_pct', c("osobar_great", "martinez_ian"))
+#' team_bar(bask, 'FG_pct')
 team_bar <- function(team, stat, players, ...) {
   # Extract player names and stats into two vectors, then put them in a data
   # frame and arrange by descending order
