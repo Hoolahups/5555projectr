@@ -22,7 +22,10 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #'  metrics.
 #'
 #' @examples
+#' bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #' player_star(bask, "osobor_great")
+#'
+#' @export
 player_star <- function(team, player, vars, ...) {
   # Default vars: 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
 
@@ -76,7 +79,10 @@ player_star <- function(team, player, vars, ...) {
 #' @return A ggplot object representing the bar plot of the statistic across selected players.
 #'
 #' @examples
+#' bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #' team_bar(bask, 'FG_pct')
+#'
+#' @export
 team_bar <- function(team, stat, players, ...) {
   # Extract player names and stats into two vectors, then put them in a data
   # frame and arrange by descending order
@@ -113,7 +119,10 @@ team_bar <- function(team, stat, players, ...) {
 #' @return A base R plot showing the scatter plot of the two statistics.
 #'
 #' @examples
+#' bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #' compare_stats(bask, 'FG_pct', 'X3PT_pct')
+#'
+#' @export
 compare_stats <- function(team, stat1, stat2, ...) {
   # Extract stats into two vectors
   stat1_vec <- vector()

@@ -23,5 +23,7 @@ This function generates a bar plot showing the values of a given statistic
 across all players. Players can be selected also be specified.
 }
 \examples{
+bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 team_bar(bask, 'FG_pct')
+
 }

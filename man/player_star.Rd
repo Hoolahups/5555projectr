@@ -27,5 +27,7 @@ statistics. It normalizes player stats by team averages and displays them
 in a star plot.
 }
 \examples{
+bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 player_star(bask, "osobor_great")
+
 }
