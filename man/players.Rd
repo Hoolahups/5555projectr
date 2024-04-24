@@ -7,7 +7,7 @@
 players(team)
 }
 \arguments{
-\item{team}{}
+\item{team}{Team statistics returned by get_data}
 }
 \value{
 A list of players names on a specified team.

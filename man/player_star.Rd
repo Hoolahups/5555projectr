@@ -27,5 +27,5 @@ statistics. It normalizes player stats by team averages and displays them
 in a star plot.
 }
 \examples{
-player_star(bask, "osobar_great")
+player_star(bask, "osobor_great")
 }

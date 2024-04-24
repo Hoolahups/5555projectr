@@ -11,7 +11,7 @@ team_bar(team, stat, players, ...)
 
 \item{stat}{A string specifying the statistic to plot.}
 
-\item{players}{A character vector specifying which players to include in the plot.}
+\item{players}{A character vector specifying which players to include in the plot (coming soon).}
 
 \item{...}{Additional arguments passed to other methods.}
 }
@@ -23,5 +23,5 @@ This function generates a bar plot showing the values of a given statistic
 across all players. Players can be selected also be specified.
 }
 \examples{
-team_bar(bask, 'FG_pct', c("osobar_great", "martinez_ian"))
+team_bar(bask, 'FG_pct')
 }

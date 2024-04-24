@@ -1,6 +1,6 @@
 #' Create List of Players
 #'
-#' @param team
+#' @param team Team statistics returned by get_data
 #'
 #' @returns A list of players names on a specified team.
 players <- function(team) {
