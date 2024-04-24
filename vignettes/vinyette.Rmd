@@ -18,11 +18,15 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(projectr5555)
 ```
+Our package scrapes player statistics for a university basketball team from the official team website and provides functions to create user-specified plots. 
+
+The get_data function takes a URL as an argument and scrapes the corresponding webpage. Many NCAA basketball teams use a format for their website identical to USU's, and so this function works for any team using that format. The function checks that the HTML scraped from the website matches an expected format, but the user should check to make sure that the desired team statistics page looks visually similar to USU's.
 
 
 ```{r, include = TRUE}
-data(usu_2023)
+usu_t2023 <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats/2023-24")
 ```
+
 
 ```{r, include = TRUE}
 
