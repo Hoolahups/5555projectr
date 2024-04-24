@@ -22,8 +22,7 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #'  metrics.
 #'
 #' @examples
-#' bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
-#' player_star(bask, "osobor_great")
+#' player_star(usu_2023, "osobor_great")
 #'
 #' @export
 player_star <- function(team, player, vars, ...) {
@@ -79,8 +78,7 @@ player_star <- function(team, player, vars, ...) {
 #' @return A ggplot object representing the bar plot of the statistic across selected players.
 #'
 #' @examples
-#' bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
-#' team_bar(bask, 'FG_pct')
+#' team_bar(usu_2023, 'FG_pct')
 #'
 #' @export
 team_bar <- function(team, stat, players, ...) {
@@ -119,8 +117,7 @@ team_bar <- function(team, stat, players, ...) {
 #' @return A base R plot showing the scatter plot of the two statistics.
 #'
 #' @examples
-#' bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
-#' compare_stats(bask, 'FG_pct', 'X3PT_pct')
+#' compare_stats(usu_2023, 'FG_pct', 'X3PT_pct')
 #'
 #' @export
 compare_stats <- function(team, stat1, stat2, ...) {

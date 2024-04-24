@@ -23,7 +23,6 @@ This function plots the relationship between two selected statistics across
 all team members.
 }
 \examples{
-bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
-compare_stats(bask, 'FG_pct', 'X3PT_pct')
+compare_stats(usu_2023, 'FG_pct', 'X3PT_pct')
 
 }
