@@ -27,7 +27,25 @@ The get_data function takes a URL as an argument and scrapes the corresponding w
 usu_t2023 <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats/2023-24")
 ```
 
+The player_star function takes the team as an argument, and one of the players
+from the team as an argument. The function creates a star plot of eight default
+statistics about the player.
 
 ```{r, include = TRUE}
+player_star(usu_t2023, "osobor_great")
+```
 
+The team_bar function creates a horizontal bar plot. It takes the team and 
+a stat as arguments, and it compares who has the highest and lowest of these
+statistics.
+
+```{r, include = TRUE}
+team_bar(usu_t2023, 'FG_pct')
+```
+
+The compare_stats function creates a scatterplot of two statistics from the
+team. It takes a team argument, and two stats must be chosen to compare.
+
+```{r, include = TRUE}
+compare_stats(usu_t2023, 'FG_pct', 'X3PT_pct')
 ```
