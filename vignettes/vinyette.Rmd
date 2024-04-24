@@ -1,5 +1,5 @@
 ---
-title: "vinyette"
+title: "Basketball Plot Stars"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vinyette}
