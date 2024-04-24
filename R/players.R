@@ -1,4 +1,8 @@
-#makes a list of a specific team's players
+#' Create List of Players
+#'
+#' @param team
+#'
+#' @returns A list of players names on a specified team.
 players <- function(team) {
   # maybe filter out team, total, and opponents
 
