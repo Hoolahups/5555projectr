@@ -14,6 +14,8 @@ variable_maker(data_list, var1, var2, operator = "sum", new_var_name)
 \item{var2}{the second variable you'd like to combine}
 
 \item{operator}{"sum", "sub", "div" "mult"}
+
+\item{new_var_name}{(TODO: Explain this)}
 }
 \value{
 An updated list with the new variable in it

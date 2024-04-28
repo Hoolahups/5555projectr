@@ -48,8 +48,8 @@ USU's. The URL can be found by visiting the desired NCAA basketball
 team's athletic page and navigating to the stats page.
 
 ```{r, include = TRUE}
-usu_t2023 <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats
-                      /2023-24")
+url <- "https://utahstateaggies.com/sports/mens-basketball/stats/2023-24"
+usu_t2023 <- get_data(url)
 ```
 
 To obtain the URL for another team visit the desired NCAA basketball
@@ -59,8 +59,8 @@ can get the data for the University of Connecticut, the 2024 NCAA
 tournament champions, use the URL.
 
 ```{r, include = TRUE}
-uconn_t2023 <- get_data("https://uconnhuskies.com/sports/mens-basketball/stats
-                        /2023-24")
+url <- "https://uconnhuskies.com/sports/mens-basketball/stats/2023-24"
+uconn_t2023 <- get_data(url)
 ```
 
 
