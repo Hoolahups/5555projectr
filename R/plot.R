@@ -81,27 +81,23 @@ player_star <- function(team, player, vars = c("FG_pct", "X3PT_pct", "FT_pct",
 #' @export
 team_dot <- function(team, stat, players, ...) {
   # Extract player names and stats into two vectors, then put them in a data
-  # frame and arrange by descending order
+  # frame and sort
   player_name <- vector()
   stat_vec <- vector()
   for (i in seq_along(team)) {
     player_name <- c(player_name, names(team)[i])
     stat_vec <- c(stat_vec, as.numeric(team[[i]][stat]))
   }
-  dot_data <- data.frame(stat_vec, player_name)
-  row.names(dot_data) <- player_name
+  dot_data <- data.frame(stat_vec[-length(stat_vec)],
+                         player_name[-length(player_name)])
+  row.names(dot_data) <- player_name[-length(player_name)]
   dot_data <- dot_data[order(dot_data$stat_vec), ]
 
+  # Create dot plot
   graphics::dotchart(dot_data$stat_vec,
-                     labels = row.names(dot_data))
-
-  # Create horizontal bar plot
-  # ggplot2::ggplot(bar_data, ggplot2::aes(stat_vec, stats::reorder(player_name,
-  #                                                                 stat_vec))) +
-  #   ggplot2::geom_col() +
-  #   ggplot2::xlab(stat) +
-  #   ggplot2::ylab("Player") +
-  #   ggplot2::ggtitle(paste0(stat, " Between All Players"))
+                     labels = row.names(dot_data),
+                     xlab = stat)
+  graphics::abline(v = stat_vec[length(stat_vec)], lty = "dotted")
 }
 
 # Scatterplot function: Plot the relationship between two stats
