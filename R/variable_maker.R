@@ -12,6 +12,7 @@
 #' @param var1 the first variable you'd like to combine
 #' @param var2 the second variable you'd like to combine
 #' @param operator "sum", "sub", "div" "mult"
+#' @param new_var_name (TODO: Explain this)
 #'
 #' @returns An updated list with the new variable in it
 #'

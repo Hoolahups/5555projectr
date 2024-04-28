@@ -1,10 +1,14 @@
 ---
 title: "Basketball Plot Stars"
+authors: "Nicholas Brimhall, J Cook, Grace Russell, and Matthew White"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vinyette}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r, include = FALSE}
@@ -14,56 +18,109 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ```{r setup, include = FALSE}
 library(projectr5555)
 
 ```
-https://github.com/Hoolahups/projectr5555
 
-Our package scrapes player statistics for a university basketball team from the official team website and provides functions to create user-specified plots. 
+<https://github.com/Hoolahups/projectr5555>
 
-The get_data function takes a URL as an argument and scrapes the corresponding webpage. Many NCAA basketball teams use a format for their website identical to USU's, and so this function works for any team using that format. The function checks that the HTML scraped from the website matches an expected format, but the user should check to make sure that the desired team statistics page looks visually similar to USU's.
+## Overview
 
+Basketball enthusiasts and analysts often seek robust and intuitive
+tools to visualize player and team performance data quickly. This
+package, projectr5555, offers a straightforward and flexible way to
+scrape and plot NCAA basketball team statistics. Whether the user is
+tracking player progress, comparing team statistics, or scouting
+opponents, projectr5555 provides the tools users need to make informed
+decisions and compelling presentations. Utilizing this package, users
+can effortlessly compare players across multiple metrics through visual
+representations, allowing for quick insights and deep analysis.
+
+### Data
+
+The get_data function takes a URL as an argument and scrapes the
+corresponding webpage. Many NCAA basketball teams use a format for their
+website identical to USU's, and so this function works for any team
+using that format. The function checks that the HTML scraped from the
+website matches an expected format, but the user should check to make
+sure that the desired team statistics page looks visually similar to
+USU's. The URL can be found by visiting the desired NCAA basketball
+team's athletic page and navigating to the stats page.
 
 ```{r, include = TRUE}
-usu_t2023 <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats/2023-24")
+url <- "https://utahstateaggies.com/sports/mens-basketball/stats/2023-24"
+usu_t2023 <- get_data(url)
 ```
 
-The player_star function takes the team as an argument, and one of the players
-from the team as an argument. The function creates a star plot of eight default
-statistics about the player.
+To obtain the URL for another team visit the desired NCAA basketball
+team's athletic page and navigating to the stats page. Select the
+desired season and copy the URL. The example below shows how the user
+can get the data for the University of Connecticut, the 2024 NCAA
+tournament champions, use the URL.
+
+```{r, include = TRUE}
+url <- "https://uconnhuskies.com/sports/mens-basketball/stats/2023-24"
+uconn_t2023 <- get_data(url)
+```
+
+
+### Plots
+
+
+#### Star Plot
+
+This plot visualizes a specified player's statistics in a star chart, highlighting their performance across multiple areas like scoring, defense, and rebounding. There are eight default statistics. Each axis represents a different stat, providing a quick visual assessment of a player's skills. The function takes the team and players name as the first two arguments. 
 
 ```{r, include = TRUE}
 player_star(usu_t2023, "osobor_great")
+
 ```
 
-The team_bar function creates a horizontal bar plot. It takes the team and 
-a stat as arguments, and it compares who has the highest and lowest of these
-statistics.
+
+#### Bar Plot
+
+This horizontal bar plot compares a single statistic, such as field goal percentage, across all team members. It quickly identifies top performers and those needing improvement in specific areas.
 
 ```{r, include = TRUE}
-team_bar(usu_t2023, 'FG_pct')
+team_dot(usu_t2023, "FG_pct")
 ```
 
-The compare_stats function creates a scatterplot of two statistics from the
-team. It takes a team argument, and two stats must be chosen to compare.
+
+#### Scatter Plot
+
+This scatter plot compares two statistics to explore their relationship, such as the correlation between overall shooting efficiency and three-point shooting. It helps identify patterns that can inform coaching strategies.
 
 ```{r, include = TRUE}
-compare_stats(usu_t2023, 'FG_pct', 'X3PT_pct')
+compare_stats(usu_t2023, "FG_pct", "X3PT_pct")
 ```
 
-The variable_maker function takes 2 existing variables and combines them in a 
-way that the user defines, it then returns the entire list with the variables
-and average added to it.
+
+### Make Your Own Variables
+
+The variable_maker function takes two existing variables and combines them
+in a way that the user specifies. It then returns the entire list with the
+variables and average added to it.
 
 ```{r, include = TRUE}
 usu_t2023 <- variable_maker(usu_t2023, "GP", "GS", "sum", "gps")
 ```
 
-Once you have your new variable, you can use it to make your own plots. Whether
-or not its useful is up to you, but make sure to have fun with it!
+Once you have your new variable, you can use it to make your own plots.
+Whether or not its useful is up to you, but make sure to have fun with
+it!
 
 ```{r, include = TRUE}
-player_star(usu_t2023, "osobor_great", vars = c("GP", "GS", "FGA", "X3PT", "gps"))
+player_star(usu_t2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
+))
 ```
+
+
+## Summary
+
+The plotting capabilities provided by projectr5555 are invaluable for
+visualizing complex basketball statistics in a clear and accessible
+manner. These plots not only enhance understanding and presentation of
+player and team metrics but also aid in strategic decision-making.
+Whether for fan engagement, coaching strategies, or academic research,
+our tools offer significant benefits to diverse users.

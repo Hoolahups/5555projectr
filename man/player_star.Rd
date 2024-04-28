@@ -4,7 +4,12 @@
 \alias{player_star}
 \title{Create a star plot for a specified player}
 \usage{
-player_star(team, player, vars, ...)
+player_star(
+  team,
+  player,
+  vars = c("FG_pct", "X3PT_pct", "FT_pct", "scoring_avg", "avg_re", "AST", "STL", "BLK"),
+  ...
+)
 }
 \arguments{
 \item{team}{A list representing the team data.}
