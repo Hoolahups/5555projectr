@@ -11,7 +11,8 @@ team_dot(team, stat, players, ...)
 
 \item{stat}{A string specifying the statistic to plot.}
 
-\item{players}{A character vector specifying which players to include in the plot (coming soon).}
+\item{players}{A character vector specifying which players to include
+in the plot (coming soon).}
 
 \item{...}{Additional arguments passed to other methods.}
 }

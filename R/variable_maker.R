@@ -1,8 +1,7 @@
-
 #' Make a new variable
 #'
-#' Takes 2 existing variables and makes a new one, useful for when one metric
-#' doesn't tell you much on its own, but 2 together might. Make sure to re-store
+#' Takes two existing variables and makes a new one, useful for when one metric
+#' doesn't tell you much on its own, but two together might. Make sure to re-store
 #' this in the place of your original data, as it simply adds a variable to all
 #' of the data.
 #'
@@ -16,15 +15,16 @@
 #'
 #' @returns An updated list with the new variable in it
 #' @examples
-#' #variable_maker(usu_t2023, "GP", "GS", "sum", "gps")
-#' # #This returns a list similar to usu_t2023 but with an added variable in every
-#' # #list for "gps" which is a sum of the "GP" and "GS" functions. this works
-#' # #very similarly for any 2 variables. It also adds the team average to the
-#' # #"avg" player so that standardization in plots is easier.
+#' variable_maker(usu_2023, "GP", "GS", "sum", "gps")
+#' # This returns a list similar to usu_t2023 but with an added variable in
+#' # every list for "gps" which is a sum of the "GP" and "GS" functions. this
+#' # works very similarly for any 2 variables. It also adds the team average to
+#' # the "avg" player so that standardization in plots is easier.
 #'
 #'
 #' @export
-variable_maker <- function(data_list, var1, var2, operator = "sum", new_var_name) {
+variable_maker <- function(data_list, var1, var2, operator = "sum",
+                           new_var_name) {
   operation <- switch(operator,
                       "sum" = function(x, y) x + y,
                       "div" = function(x, y) x / y,
@@ -43,4 +43,3 @@ variable_maker <- function(data_list, var1, var2, operator = "sum", new_var_name
 
   return(data_list)
 }
-

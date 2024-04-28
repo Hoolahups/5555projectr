@@ -9,7 +9,7 @@ player_stats <- function(team, player_name) {
   }
 
   # convert these stats to integers and return them as a list
-  player_stats <- as.list(as.numeric(unlist(player_row[,-(1:2)])))
+  player_stats <- as.list(as.numeric(unlist(player_row[, -(1:2)])))
 
   return(player_stats)
 }

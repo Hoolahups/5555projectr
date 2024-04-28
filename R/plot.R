@@ -25,8 +25,10 @@ bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
 #' player_star(usu_2023, "osobor_great")
 #'
 #' @export
-player_star <- function(team, player, vars = c("FG_pct", "X3PT_pct", "FT_pct",
-                          "scoring_avg", "avg_re", "AST", "STL", "BLK"), ...) {
+player_star <- function(team, player,
+                        vars = c("FG_pct", "X3PT_pct", "FT_pct",
+                                 "scoring_avg", "avg_re", "AST", "STL", "BLK"),
+                        ...) {
   # Default vars: 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
 
   # Dividing by games played caused numbers to be 0 later on,
@@ -70,7 +72,8 @@ player_star <- function(team, player, vars = c("FG_pct", "X3PT_pct", "FT_pct",
 #'
 #' @param team A list representing the team data.
 #' @param stat A string specifying the statistic to plot.
-#' @param players A character vector specifying which players to include in the plot (coming soon).
+#' @param players A character vector specifying which players to include
+#' in the plot (coming soon).
 #' @param ... Additional arguments passed to other methods.
 #'
 #' @return A baseR dotchart plot.
