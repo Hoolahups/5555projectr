@@ -16,9 +16,9 @@ A data.frame/tibble (still working on this part)
 Scrapes player statistics from official NCAA/university basketball sites.
 }
 \details{
-A number of NCAA basketball teams (Men's and Women's) use the same webpage template across
-all schools. This function implements a script that scrapes the individual player
-statistics and formats them in a data.frame/tibble. It performs a basic check
-to make sure the data conform to the expected format. Also the names of the players
-need to be cleaned.
+A number of NCAA basketball teams (Men's and Women's) use the same webpage
+template across all schools. This function implements a script that scrapes
+the individual player statistics and formats them in a data.frame/tibble. It
+performs a basic check to make sure the data conform to the expected format.
+Also the names of the players need to be cleaned.
 }
