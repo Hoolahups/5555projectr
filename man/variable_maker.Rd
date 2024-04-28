@@ -26,3 +26,12 @@ doesn't tell you much on its own, but 2 together might. Make sure to re-store
 this in the place of your original data, as it simply adds a variable to all
 of the data.
 }
+\examples{
+#variable_maker(usu_t2023, "GP", "GS", "sum", "gps")
+# #This returns a list similar to usu_t2023 but with an added variable in every
+# #list for "gps" which is a sum of the "GP" and "GS" functions. this works
+# #very similarly for any 2 variables. It also adds the team average to the
+# #"avg" player so that standardization in plots is easier.
+
+
+}
