@@ -2,7 +2,6 @@
 
 export(compare_stats)
 export(get_data)
-export(hello)
 export(player_star)
 export(team_dot)
 export(variable_maker)
