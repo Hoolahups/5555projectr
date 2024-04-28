@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 ```{r setup, include = FALSE}
 library(projectr5555)
+
 ```
 https://github.com/Hoolahups/projectr5555
 
