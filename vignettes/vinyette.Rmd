@@ -118,7 +118,7 @@ player_star(usu_t2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
 
 ## Summary
 
-The plotting capabilities provided by projectr5555 are invaluable for
+The plotting capabilities provided by our package are invaluable for
 visualizing complex basketball statistics in a clear and accessible
 manner. These plots not only enhance understanding and presentation of
 player and team metrics but also aid in strategic decision-making.
