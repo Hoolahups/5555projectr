@@ -73,7 +73,7 @@ uconn_t2023 <- get_data(url)
 This plot visualizes a specified player's statistics in a star chart, highlighting their performance across multiple areas like scoring, defense, and rebounding. There are eight default statistics. Each axis represents a different stat, providing a quick visual assessment of a player's skills. The function takes the team and players name as the first two arguments. 
 
 ```{r, include = TRUE}
-player_star(usu_t2023, "osobor_great")
+player_star(usu_2023, "osobor_great")
 
 ```
 
@@ -83,7 +83,7 @@ player_star(usu_t2023, "osobor_great")
 This horizontal bar plot compares a single statistic, such as field goal percentage, across all team members. It quickly identifies top performers and those needing improvement in specific areas.
 
 ```{r, include = TRUE}
-team_dot(usu_t2023, "FG_pct")
+team_dot(usu_2023, "FG_pct")
 ```
 
 
@@ -92,7 +92,7 @@ team_dot(usu_t2023, "FG_pct")
 This scatter plot compares two statistics to explore their relationship, such as the correlation between overall shooting efficiency and three-point shooting. It helps identify patterns that can inform coaching strategies.
 
 ```{r, include = TRUE}
-compare_stats(usu_t2023, "FG_pct", "X3PT_pct")
+compare_stats(usu_2023, "FG_pct", "X3PT_pct")
 ```
 
 
@@ -103,7 +103,7 @@ in a way that the user specifies. It then returns the entire list with the
 variables and average added to it.
 
 ```{r, include = TRUE}
-usu_t2023 <- variable_maker(usu_t2023, "GP", "GS", "sum", "gps")
+usu_t2023 <- variable_maker(usu_2023, "GP", "GS", "sum", "gps")
 ```
 
 Once you have your new variable, you can use it to make your own plots.
@@ -111,7 +111,7 @@ Whether or not its useful is up to you, but make sure to have fun with
 it!
 
 ```{r, include = TRUE}
-player_star(usu_t2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
+player_star(usu_2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
 ))
 ```
 
