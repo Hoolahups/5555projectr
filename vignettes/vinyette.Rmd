@@ -1,6 +1,6 @@
 ---
 title: "Basketball Plot Stars"
-authors: "Nicholas Brimhall, J Cook, Grace Russell, and Matthew White"
+author: "Nicholas Brimhall, J Cook, Grace Russell, and Matthew White"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vinyette}
@@ -84,6 +84,14 @@ compared to the average value of blocks. X3PT_pct and FG_pct are closer
 towards the middle of the plot, so Osobor has relatively low values of number
 of three-pointers made and field goals made.
 
+Multiple star plots can be to created in order to compare multiple players.
+
+```{r, include = TRUE}
+player_star(usu_2023, "johnson_isaac")
+
+```
+
+In the above plot, we can visualize a few of Isaac Johnson's statistic. Compared to Osobor we can quickly see that Johnson does not have as many blocks and rebounds as Osobor. Instead Johnson seems to do much better at making 3's  and free throws by his 3 point percentage and his free throw percentage.
 
 #### Dot Plot
 
