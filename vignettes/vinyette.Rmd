@@ -70,15 +70,22 @@ uconn_t2023 <- get_data(url)
 
 #### Star Plot
 
-This plot visualizes a specified player's statistics in a star chart, highlighting their performance across multiple areas like scoring, defense, and rebounding. There are eight default statistics. Each axis represents a different stat, providing a quick visual assessment of a player's skills. The function takes the team and players name as the first two arguments. 
+This plot visualizes a specified player's statistics in a star chart, highlighting their performance across multiple areas like scoring, defense, and rebounding. There are eight default statistics. Each axis represents a different stat, providing a quick visual assessment of a player's skills. The function takes the team and players name as the first two arguments. Inside the function, every
+statistic value is divided by the average, so each star plot is easy to compare
+to one another.
 
 ```{r, include = TRUE}
 player_star(usu_2023, "osobor_great")
 
 ```
 
+In the above plot, we can see that Great Osobor has a high number of blocks
+compared to the average value of blocks. X3PT_pct and FG_pct are closer
+towards the middle of the plot, so Osobor has relatively low values of number
+of three-pointers made and field goals made.
 
-#### Bar Plot
+
+#### Dot Plot
 
 This horizontal bar plot compares a single statistic, such as field goal percentage, across all team members. It quickly identifies top performers and those needing improvement in specific areas.
 
@@ -92,7 +99,7 @@ team_dot(usu_2023, "FG_pct")
 This scatter plot compares two statistics to explore their relationship, such as the correlation between overall shooting efficiency and three-point shooting. It helps identify patterns that can inform coaching strategies.
 
 ```{r, include = TRUE}
-compare_stats(usu_2023, "FG_pct", "X3PT_pct")
+compare_stats(usu_2023, "X3PT", "X3PT_pct")
 ```
 
 
