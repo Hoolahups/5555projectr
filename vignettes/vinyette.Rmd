@@ -111,7 +111,7 @@ Whether or not its useful is up to you, but make sure to have fun with
 it!
 
 ```{r, include = TRUE}
-player_star(usu_2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
+player_star(usu_t2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
 ))
 ```
 
