@@ -1,10 +1,3 @@
-# All plots are made assuming the team class is a list of lists, and the player
-# class is a list hehe here is stuff for a new push
-
-
-# example team class to mess around with
-bask <- get_data("https://utahstateaggies.com/sports/mens-basketball/stats")
-
 #' Create a star plot for a specified player
 #'
 #' This function creates a star plot for the specified player using selected
