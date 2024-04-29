@@ -24,15 +24,6 @@ player_star <- function(team, player,
                         ...) {
   # Default vars: 'FG%', '3PT%', 'FT%', scoring_avg, avg_re, AST, STL, BLK
 
-  # Dividing by games played caused numbers to be 0 later on,
-  # so commenting out for now
-  # team[[player]]$AST <- as.numeric(team[[player]]$AST) /
-  # as.numeric(team[[player]]$GP)
-  # team[[player]]$STL <- as.numeric(team[[player]]$STL) /
-  # as.numeric(team[[player]]$GP)
-  # team[[player]]$BLK <- as.numeric(team[[player]]$BLK) /
-  # as.numeric(team[[player]]$GP)
-
   # Divide each value by average team value
   for (i in 2:length(team[[player]])) {
     team[[player]][i] <- as.numeric(team[[player]][i]) /
