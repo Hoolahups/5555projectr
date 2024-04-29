@@ -120,6 +120,9 @@ variables and average added to it.
 usu_t2023 <- variable_maker(usu_2023, "GP", "GS", "sum", "gps")
 ```
 
+The above line of code adds a "gps" varialbe, which is the sum of games started
+and games played.
+
 Once you have your new variable, you can use it to make your own plots.
 Whether or not its useful is up to you, but make sure to have fun with
 it!
@@ -129,6 +132,8 @@ player_star(usu_t2023, "martinez_ian", vars = c("GP", "GS", "FGA", "X3PT", "gps"
 ))
 ```
 
+In the above plot, we can see a star plot with the variables that we passed
+into the star plot function. The new "gps" variable is included.
 
 ## Summary
 
