@@ -92,6 +92,7 @@ This horizontal bar plot compares a single statistic, such as field goal percent
 ```{r, include = TRUE}
 team_dot(usu_2023, "FG_pct")
 ```
+
 In the above plot, we can see that Kalifa Sakho has the highest field goal
 percentage, while Nigel Burris has the lowest. The average value for the team
 is displayed by the dotted vertical line.
@@ -103,6 +104,7 @@ This scatter plot compares two statistics to explore their relationship, such as
 ```{r, include = TRUE}
 compare_stats(usu_2023, "X3PT", "X3PT_pct")
 ```
+
 In the above plot, we can see a clear positive relationship between
 the number of three-pointers and the percentage of three-pointers made. This
 may imply that players that attempt more three-pointers make a higher
