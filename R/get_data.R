@@ -10,7 +10,8 @@
 #'
 #' @param url A URL of an official team statistics page.
 #'
-#' @returns A data.frame/tibble (still working on this part)
+#' @returns A list of lists. Each sub-list is a player, and each item of the
+#' sub-list is a statistic.
 #'
 #' @importFrom rlang .data
 #'

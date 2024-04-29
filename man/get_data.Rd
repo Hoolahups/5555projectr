@@ -10,7 +10,8 @@ get_data(url)
 \item{url}{A URL of an official team statistics page.}
 }
 \value{
-A data.frame/tibble (still working on this part)
+A list of lists. Each sub-list is a player, and each item of the
+sub-list is a statistic.
 }
 \description{
 Scrapes player statistics from official NCAA/university basketball sites.
