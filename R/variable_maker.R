@@ -1,9 +1,9 @@
 #' Make a new variable
 #'
 #' Takes two existing variables and makes a new one, useful for when one metric
-#' doesn't tell you much on its own, but two together might. Make sure to re-store
-#' this in the place of your original data, as it simply adds a variable to all
-#' of the data.
+#' doesn't tell you much on its own, but two together might. Make sure to
+#' re-store this in the place of your original data, as it simply adds a
+#' variable to all of the data.
 #'
 #'
 #'
