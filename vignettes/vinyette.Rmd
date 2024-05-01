@@ -27,26 +27,36 @@ library(projectr5555)
 
 ## Overview
 
-Basketball enthusiasts and analysts often seek robust and intuitive
-tools to visualize player and team performance data quickly. This
-package, projectr5555, offers a straightforward and flexible way to
-scrape and plot NCAA basketball team statistics. Whether the user is
-tracking player progress, comparing team statistics, or scouting
-opponents, projectr5555 provides the tools users need to make informed
-decisions and compelling presentations. Utilizing this package, users
-can effortlessly compare players across multiple metrics through visual
-representations, allowing for quick insights and deep analysis.
+Basketball enthusiasts and analysts often seek robust and intuitive tools to
+visualize player and team performance data quickly. This package offers a
+straightforward and flexible way to scrape and plot NCAA basketball team
+statistics. The team websites do not have a built in plotting interface, so our
+package takes advantage of one of R's greatest strengths--data visualization--to
+create graphics for visualizing player data. These visualizations are much
+easier to intuitively interpret or search for relationships than the tables
+provided by the team website. Whether the user is tracking player progress,
+comparing team statistics, or scouting opponents, our package provides the tools
+users need to make informed decisions and compelling presentations. Utilizing
+this package, users can effortlessly compare players across multiple metrics
+through visual representations, allowing for quick insights and deep analysis.
 
 ### Data
 
-The get_data function takes a URL as an argument and scrapes the
-corresponding webpage. Many NCAA basketball teams use a format for their
-website identical to USU's, and so this function works for any team
-using that format. The function checks that the HTML scraped from the
-website matches an expected format, but the user should check to make
-sure that the desired team statistics page looks visually similar to
-USU's. The URL can be found by visiting the desired NCAA basketball
-team's athletic page and navigating to the stats page.
+The get_data function takes a URL as an argument and scrapes the corresponding
+webpage. Many NCAA basketball teams use a format for their website identical to
+USU's, and so this function works for any team using that format. The function
+checks that the HTML scraped from the website matches an expected format, but
+the user should check to make sure that the desired team statistics page looks
+visually similar to USU's. The URL can be found by visiting the desired NCAA
+basketball team's athletic page and navigating to the stats page. The official
+page is usually the first and/or second result for a Google search of “[college
+name] basketball statistics," and the title of the page follows the format
+“[Season] [Men's/Women's] Basketball Cumulative Statistics.” The page should be
+almost identical in format to the provided examples except for color. The
+get_data function checks to make sure the HTML output from scraping follows an
+expected format and will return an error if it does not. The statistics page for
+NC State is an example of a page that does NOT follow the format and for which
+get_data will be unable to scrap.
 
 ```{r, include = TRUE}
 url <- "https://utahstateaggies.com/sports/mens-basketball/stats/2023-24"
@@ -145,9 +155,12 @@ into the star plot function. The new "gps" variable is included.
 
 ## Summary
 
-The plotting capabilities provided by our package are invaluable for
-visualizing complex basketball statistics in a clear and accessible
-manner. These plots not only enhance understanding and presentation of
-player and team metrics but also aid in strategic decision-making.
-Whether for fan engagement, coaching strategies, or academic research,
-our tools offer significant benefits to diverse users.
+The plotting capabilities provided by our package are invaluable for visualizing
+complex basketball statistics in a clear and accessible manner. For university
+students who do not closely follow basketball but would like to gain a better
+understanding of the strengths of the players on their school's team (perhaps to
+follow their team during the NCAA championships) could use our plots. For more
+advanced users, these plots not only enhance understanding and presentation of
+player and team metrics but also aid in strategic decision-making. Whether for
+fan engagement, coaching strategies, or academic research, our tools offer
+significant benefits to diverse users.
